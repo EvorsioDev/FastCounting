@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <script src="/javascripts/gamewindow.js" type="module" defer> </script>
+        <link rel="stylesheet" type="" href="/stylesheets/gamepage.css">
+        <title>GAME</title>
+    </head>
+    <body>
+        <h1>GAME</h1>
+        <section id="main-section">
+            <p id="question"><%=exercise.num1%> <%=exercise.type.symbol%> <%=exercise.num2%></p>
+            <div id="countdown">
+              <div></div>
+            </div>
+            <input type="text" name="input" value="" id="input" autofocus>
+        </section>
+
+        <div style="display: none;">
+            <div id="data-num1" data-num1="<%=exercise.num1%>"></div>
+            <div id="data-num2" data-num2="<%=exercise.num2%>"></div>
+            <div id="data-answer" data-answer="<%=exercise.answer%>"></div>
+            <div id="data-time" data-time="<%=time%>"></div>
+        </div>
+    </body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title></title>
+        <link href="/stylesheets/startpage.css" rel="stylesheet">
+        <script src="/javascripts/startpage.js" type="module" defer>
+
+        </script>
+    </head>
+    <body>
+        <h1 id="game-title">{Быстрый счёт}</h1>
+        <main id="settings-section">
+            <section>
+                <form id="game-form" method="post" action="/startgame" enctype="application/x-www-form-urlencoded">
+                    <div class="settings-section">
+                        <label for="num-exercises">Число примеров</label>
+                        <button type="button" class="number-control number-control-down">-</button>
+                        <input type="number" name="num-exercises" id="num-exercises" value="10" min="1" max="10" readonly >
+                        <button type="button" class="number-control number-control-up">+</button>
+                    </div>
+                    <fieldset class="settings-section" name="difficulty" title="Difficulty">
+                        <legend>Difficulty</legend>
+                        <% Object.values(levels).forEach((level) => { %>
+                        <div class="settings-diff-level">
+                            <label for="diff-<%=level.id%>"><%=level.id%></label>
+                            <input data-diff="<%=level.id%>" type="radio" id="diff-<%=level.id%>" class="settings-difficulty-radio" name="difficulty" value="<%=level.id%>" <% if (level.default) {%> checked <%}%>>
+                        </div>
+                        <%})%>
+                    </fieldset>
+                    <fieldset class="settings-section" name="exercise-types">
+                        <legend>Types</legend>
+
+                        <% Object.values(types).forEach((type) => { %>
+                        <div class="settings-ex-type">
+                            <label for="<%=type.id%>"><%=type.id%></label>
+                                <input type="checkbox" id="<%=type.id%>" name="ex-type" class="exercise-type-checkbox" value="<%=type.id%>">
+                        </div>
+                        <%})%>
+                    </fieldset>
+                    <button type="submit" id="start-button">button-start</button>
+            </section>
+            <section>
+                <div class="time-display">
+                    Time <span class="time-placeholder"></span>
+                </div>
+                <div>
+                    Number of exercises <span class="number-of-exercies-placeholder"></span>
+                </div>
+                <div>
+                    <label for="display-types">Types</label>
+                    <ul id="display-types"></ul>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

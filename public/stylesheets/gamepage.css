@@ -1,0 +1,149 @@
+@import url("https://cdn.jsdelivr.net/gh/vsalvino/computer-modern@main/fonts/serif.css");
+@import url("https://fonts.googleapis.com/css2?family=MuseoModerno:ital,wght@0,100..900;1,100..900&family=Tiny5&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&family=Pacifico&display=swap");
+
+*,
+*:before,
+*:after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  place-items: center;
+  height: 100vh;
+  background: url("/images/matrix.gif"), #0a0d17;
+  background-blend-mode: difference;
+}
+
+form input {
+  font-family: "Nunito", sans-serif;
+  color: #ffeea1;
+  background: transparent;
+  border: none;
+  font-size: 100%;
+}
+
+.number-control {
+  display: inline-block;
+
+  font-family: "Nunito", sans-serif;
+  color: #ffeea1;
+  background: transparent;
+  border: none;
+  font-size: 100%;
+  padding: 1rem;
+}
+
+.settings-section {
+  border: 10px ridge #ab7001;
+  padding: 0.25rem;
+}
+
+#settings-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1;
+
+  font-family: "Nunito", sans-serif;
+  color: #ffeea1;
+  font-size: 2rem;
+  background: #0a0d17;
+  padding: 1rem;
+  border: 15px ridge #ab7001;
+  border-radius: 3px;
+  box-shadow: 20px 10px 10px black;
+  gap: 1rem;
+}
+
+h1 {
+  text-wrap: nowrap;
+  font-size: 10rem;
+  font-family: "Tiny5", sans-serif;
+  font-style: italic;
+  text-shadow: 2px 5px 2px orange;
+  color: #45bde6;
+  -webkit-text-stroke: 3px #ffdd63;
+  animation:
+    2s ease-out 0s 1 normal fall-down,
+    2s linear 0s 1 normal appear,
+    2s ease-in-out 2s infinite alternate float;
+}
+
+#question {
+  text-wrap: nowrap;
+  font-size: 5rem;
+  font-family: "Tiny5", sans-serif;
+  font-style: italic;
+  text-shadow: 2px 5px 2px orange;
+  color: #45bde6;
+  -webkit-text-stroke: 3px #ffdd63;
+}
+
+#main-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  font-size: 2rem;
+  width: 50%;
+}
+
+#countdown {
+  background-color: black;
+  border-radius: 3px;
+  width: 12em;
+  padding: 3px;
+}
+
+#countdown > div {
+  background: linear-gradient(to right, #45bde6, red);
+  width: calc(var(--value) * 100% / var(--time));
+  height: 1em;
+  border-radius: 3px;
+  transition: width 2s ease-in-out;
+}
+
+#input {
+  font-size: 1em;
+  background: #111;
+  color: whitesmoke;
+  text-wrap: nowrap;
+  font-family: "Tiny5", sans-serif;
+  color: #45bde6;
+  -webkit-text-stroke: 1px #ffdd63;
+  background: none;
+  border: none;
+  text-align: center;
+}
+
+@keyframes fall-down {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+@keyframes appear {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes float {
+  0% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(1rem);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
